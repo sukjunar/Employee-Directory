@@ -51,5 +51,3 @@ $('#add').on('click', showAdd);
 $('#verify').on('click', showVerify);
 $('#update').on('click', showUpdate);
 $('#delete').on('click', showDelete);
-
-const 
