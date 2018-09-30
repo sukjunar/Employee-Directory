@@ -74,6 +74,15 @@ main {
     background: #808080;
     color: #ffffff;
 }
+div.viewPageContent {
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 125%;
+    line-height: 1.5;
+}
 
 .hide {
     display: none;
