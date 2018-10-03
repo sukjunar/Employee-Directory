@@ -36,7 +36,10 @@ nav {
 div.updatePageAlert {
     margin-bottom: 10px;
 }
-div.updatePageAlert {
+div.deletePageAlert {
+    margin-bottom: 10px;
+}
+div.addPageAlert {
     margin-bottom: 10px;
 }
 #home:hover {
