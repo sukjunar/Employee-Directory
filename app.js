@@ -44,7 +44,6 @@ const showDelete = function () {
     $('#verifyPage').addClass('hide');
     $('#updatePage').addClass('hide');
     $('#deletePage').removeClass('hide');
-
 }
 $('#home').on('click', showHome);
 $('#view').on('click', showView);
@@ -55,10 +54,30 @@ $('#delete').on('click', showDelete);
 
 // VIEW PAGE
 const viewPageFunction = function () {
-    for (i=0; i < employeeList.length; i++) {
-        $('#firstName').text(employeeList[i].firstName);
-        $('#lastName').text(employeeList[i].lastName);
-        $('#officeNum').text(employeeList[i].officeNum);
-        $('#phoneNum').text(employeeList[i].phoneNum);
+    $('.viewPageContent').empty()
+    for (i = 0; i < employeeList.length; i++) {
+        let info = (`<div class="viewPageContent"><p>${employeeList[i].firstName}</p><p>${employeeList[i].lastName}</p>
+        <p>${employeeList[i].officeNum}</p><p>${employeeList[i].phoneNum}</p></div>`);
+        $('.viewPageContent').append(info)
+    };
+}
+$('#view').on('click', viewPageFunction);
+
+//ADD PAGE
+const addPageFunction = function () {
+    firstName =  $("#firstNameInput").val()
+    lastName = $("#lastNameInput").val()
+    officeNumber = $("#officeNumInput").val()
+    phoneNumber = $("#phoneNumInput").val()
+
+    newInfo = {
+        firstName: firstName, 
+        lastName: lastName, 
+        officeNum: officeNumber,
+        phoneNum: phoneNumber
     }
 }
+
+$('#add').on('click', addPageFunction)
+
+console.log(newInfo);

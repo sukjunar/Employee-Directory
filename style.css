@@ -82,6 +82,11 @@ div.viewPageContent {
     padding: 5px;
     font-size: 125%;
     line-height: 1.5;
+    margin-bottom: 10px;
+}
+div.content {
+    border-style: none;
+    padding: none;
 }
 
 .hide {

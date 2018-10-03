@@ -53,11 +53,7 @@
             <h1>View</h1>
             <p>View the directory.</p>
             <br />
-            <div class="viewPageContent">
-                <p id="firstName"></p>
-                <p id="lastName"></p>
-                <p id="officeNum"></p>
-                <p id="phoneNum"></p>
+            <div class="viewPageContent" style="padding: 0px; margin: 0px; border-style: none;">
             </div>
         </section>
 
@@ -67,10 +63,10 @@
             <p>Add to the directory.</p>
             <br />
             <form action="">
-                <input type="text" name="firstname" value=" First" style="color: #808080; width: 20%; height: 25px;">
-                <input type="text" name="lastname" value=" Last" style="color: #808080; width: 20%; height: 25px;">
-                <input type="text" name="officenumber" value=" Office # i.e. 123" style="color: #808080; width: 15%; height: 25px;">
-                <input type="text" name="phonenumber" value=" Phone # i.e. 123-456-7890" style="color: #808080; width: 30%; height: 25px;">
+                <input id="firstNameInput" name="firstname" placeholder=" First" style="color: #808080; width: 20%; height: 25px;">
+                <input id="lastNameInput" name="lastname" placeholder=" Last" style="color: #808080; width: 20%; height: 25px;">
+                <input id="officeNumInput" name="officeNumber" placeholder=" Office # i.e. 123" style="color: #808080; width: 15%; height: 25px;">
+                <input id="phoneNumInput" name="phoneNumber" placeholder=" Phone # i.e. 123-456-7890" style="color: #808080; width: 30%; height: 25px;">
                 <input type="submit" value="+" style="width: 30px; height: 30px;">
             </form>
         </section>
