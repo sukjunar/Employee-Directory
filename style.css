@@ -1,5 +1,6 @@
 body {
-    font-family: Verdana, Helvetica, sans-serif
+    font-family: Verdana, Helvetica, sans-serif;
+    height: 100%;
 }
 h1 {
     font-size: 150%;
@@ -23,8 +24,12 @@ nav {
     line-height: 2;
     font-weight: bold;
     float: left;
-    padding-top: 50%;
-    padding-bottom: 50%;
+}
+div.updatePageAlert {
+    margin-bottom: 10px;
+}
+div.updatePageAlert {
+    margin-bottom: 10px;
 }
 #home:hover {
     cursor:pointer;
@@ -87,6 +92,9 @@ div.viewPageContent {
 div.content {
     border-style: none;
     padding: none;
+}
+form {
+    margin-bottom: 5px;
 }
 
 .hide {

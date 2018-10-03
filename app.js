@@ -60,24 +60,137 @@ const viewPageFunction = function () {
         <p>${employeeList[i].officeNum}</p><p>${employeeList[i].phoneNum}</p></div>`);
         $('.viewPageContent').append(info)
     };
+    $('.addPageContent').empty()
+    for (i = 0; i < employeeList.length; i++) {
+        let info = (`<div class="viewPageContent"><p>${employeeList[i].firstName}</p><p>${employeeList[i].lastName}</p>
+        <p>${employeeList[i].officeNum}</p><p>${employeeList[i].phoneNum}</p></div>`);
+        $('.addPageContent').append(info)
+    };
+    $('.updatePageContent').empty()
+    for (i = 0; i < employeeList.length; i++) {
+        let info = (`<div class="viewPageContent"><p>${employeeList[i].firstName}</p><p>${employeeList[i].lastName}</p>
+        <p>${employeeList[i].officeNum}</p><p>${employeeList[i].phoneNum}</p></div>`);
+        $('.updatePageContent').append(info)
+    };
+    $('.deletePageContent').empty()
+    for (i = 0; i < employeeList.length; i++) {
+        let info = (`<div class="viewPageContent"><p>${employeeList[i].firstName}</p><p>${employeeList[i].lastName}</p>
+        <p>${employeeList[i].officeNum}</p><p>${employeeList[i].phoneNum}</p></div>`);
+        $('.deletePageContent').append(info)
+    };
 }
 $('#view').on('click', viewPageFunction);
 
 //ADD PAGE
 const addPageFunction = function () {
-    firstName =  $("#firstNameInput").val()
-    lastName = $("#lastNameInput").val()
-    officeNumber = $("#officeNumInput").val()
-    phoneNumber = $("#phoneNumInput").val()
+    let firstName = $('#firstNameInput').val();
+    let lastName = $('#lastNameInput').val();
+    let officeNum = $('#officeNumInput').val();
+    let phoneNum = $('#phoneNumInput').val();
 
-    newInfo = {
-        firstName: firstName, 
-        lastName: lastName, 
-        officeNum: officeNumber,
-        phoneNum: phoneNumber
+    let newInfo = {
+        firstName: firstName,
+        lastName: lastName,
+        officeNum: officeNum,
+        phoneNum: phoneNum,
+    }
+
+    employeeList.push(newInfo);
+
+    $('.addPageContent').empty()
+    for (i = 0; i < employeeList.length; i++) {
+        let info = (`<div class="viewPageContent"><p>${employeeList[i].firstName}</p><p>${employeeList[i].lastName}</p>
+        <p>${employeeList[i].officeNum}</p><p>${employeeList[i].phoneNum}</p></div>`);
+        $('.addPageContent').append(info)
+    };
+    $('.addPageAlert').text("name has been added yo 😎");
+
+    $('#submitAdd').on('click', addPageFunction);
+};
+$('#add').on('click', viewPageFunction)
+
+//VERIFY PAGE
+const verifyPageFunction = function () {
+    let verifyFirstName = $('#firstNameInputVerify').val();
+    let verifyLastName = $('#lastNameInputVerify').val();
+
+    let result1 = false;
+    let result2 = false;
+    let result3 = false;
+
+    for (i = 0; i < employeeList.length; i++) {
+        if (employeeList[i].firstName === verifyFirstName) {
+            result1 = true;
+        }
+        else if (employeeList[i].lastName === verifyLastName) {
+            result2 = true;
+        }
+        else {
+            result3 = false;
+        }
+        if (result1 || result2 || result3 === true) {
+            $('.verifyPageContent').text("Yup - all's good in the hood 😎");
+        }
+        else {
+            $('.verifyPageContent').text("Nope - might want to check capitalization 🤔");
+        }
     }
 }
+$('#submitVerify').on('click', verifyPageFunction);
 
-$('#add').on('click', addPageFunction)
+//UPDATE PAGE
+const updatePageFunction = function () {
+    let firstNameUpdate = $('#firstNameUpdate').val();
+    console.log(firstNameUpdate)
+    let lastNameUpdate = $('#lastNameUpdate').val();
+    let officeNumUpdate = $('#officeNumUpdate').val();
+    let phoneNumUpdate = $('#phoneNumUpdate').val();
 
-console.log(newInfo);
+    for (i = 0; i < employeeList.length; i++) {
+        if (firstNameUpdate === employeeList[i].firstName || lastNameUpdate === employeeList[i].lastName) {
+            employeeList[i].officeNum = officeNumUpdate;
+            employeeList[i].phoneNum = phoneNumUpdate;
+            $('.updatePageAlert').text("Yup - all's good in the hood 😎");
+            $('.updatePageContent').empty()
+            for (i = 0; i < employeeList.length; i++) {
+                let info = (`<div class="viewPageContent"><p>${employeeList[i].firstName}</p><p>${employeeList[i].lastName}</p>
+                <p>${employeeList[i].officeNum}</p><p>${employeeList[i].phoneNum}</p></div>`);
+                $('.updatePageContent').append(info)
+            };
+        }
+        else {
+            $('.updatePageAlert').text("Nope - might want to check capitalization... or might not even be in here 🤔");
+            $('.updatePageContent').empty()
+            for (i = 0; i < employeeList.length; i++) {
+                let info = (`<div class="viewPageContent"><p>${employeeList[i].firstName}</p><p>${employeeList[i].lastName}</p>
+                <p>${employeeList[i].officeNum}</p><p>${employeeList[i].phoneNum}</p></div>`);
+                $('.updatePageContent').append(info)
+            };
+        }
+    }
+    $('#submitUpdate').on('click', updatePageFunction);
+};
+$('#update').on('click', viewPageFunction)
+
+
+//DELETE PAGE
+const deletePageFunction = function () {
+    let firstNameDelete = $('#firstNameDelete').val();
+    let lastNameDelete = $('#lastNameDelete').val();
+
+    for (i = 0; i < employeeList.length; i++) {
+        if (firstNameDelete === employeeList[i].firstName || lastNameDelete === employeeList[i].lastName) {
+            employeeList.splice(i, 1);
+        }
+    }
+    $('.deletePageContent').empty()
+    for (i = 0; i < employeeList.length; i++) {
+        let info = (`<div class="viewPageContent"><p>${employeeList[i].firstName}</p><p>${employeeList[i].lastName}</p>
+        <p>${employeeList[i].officeNum}</p><p>${employeeList[i].phoneNum}</p></div>`);
+        $('.deletePageContent').append(info)
+    };
+    $('.deletePageAlert').text("the person's gone for good 😭");
+};
+$('#submitDelete').on('click', deletePageFunction);
+
+$('#delete').on('click', viewPageFunction)

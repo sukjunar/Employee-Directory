@@ -63,12 +63,16 @@
             <p>Add to the directory.</p>
             <br />
             <form action="">
-                <input id="firstNameInput" name="firstname" placeholder=" First" style="color: #808080; width: 20%; height: 25px;">
-                <input id="lastNameInput" name="lastname" placeholder=" Last" style="color: #808080; width: 20%; height: 25px;">
-                <input id="officeNumInput" name="officeNumber" placeholder=" Office # i.e. 123" style="color: #808080; width: 15%; height: 25px;">
-                <input id="phoneNumInput" name="phoneNumber" placeholder=" Phone # i.e. 123-456-7890" style="color: #808080; width: 30%; height: 25px;">
-                <input type="submit" value="+" style="width: 30px; height: 30px;">
+                <input id="firstNameInput" name="firstNameAdd" placeholder=" First" style="color: #808080; width: 20%; height: 25px;">
+                <input id="lastNameInput" name="lastNameAdd" placeholder=" Last" style="color: #808080; width: 20%; height: 25px;">
+                <input id="officeNumInput" name="officeNumberAdd" placeholder=" Office # i.e. 123" style="color: #808080; width: 15%; height: 25px;">
+                <input id="phoneNumInput" name="phoneNumberAdd" placeholder=" Phone # i.e. 123-456-7890" style="color: #808080; width: 30%; height: 25px;">
+                <input id="submitAdd" type="button" onClick="addPageFunction()" value="+" style="width: 30px; height: 30px;">
             </form>
+            <div class="addPageAlert">
+            </div>
+            <div class="addPageContent" style="padding: 0px; margin: 0px; border-style: none;">
+            </div>
         </section>
 
         <!--VERIFY-->
@@ -77,23 +81,48 @@
             <p>Verify a name in the directory.</p>
             <br />
             <form action="">
-                <input type="text" name="firstname" value=" First" style="color: #808080; width: 20%; height: 25px;">
+                <input id="firstNameInputVerify" name="firstNameVerify" placeholder=" First" style="color: #808080; width: 20%; height: 25px;">
                 or
-                <input type="text" name="lastname" value=" Last" style="color: #808080; width: 20%; height: 25px;">
-                <input type="submit" value="+" style="width: 30px; height: 30px;">
+                <input id="lastNameInputVerify" name="lastNameVerify" placeholder=" Last" style="color: #808080; width: 20%; height: 25px;">
+                <input id="submitVerify" type="button" onClick="verifyPageFunction" value="?" style="width: 30px; height: 30px;">
             </form>
+            <div class="verifyPageContent">
+            </div>
         </section>
 
         <!--UPDATE-->
         <section id="updatePage" class="hide">
             <h1>Update</h1>
             <p>Update the directory.</p>
+            <br />
+            <form action="">
+                <input id="firstNameUpdate" name="firstNameUpdate" placeholder=" First" style="color: #808080; width: 20%; height: 25px;">
+                <input id="lastNameUpdate" name="lastNameUpdate" placeholder=" Last" style="color: #808080; width: 20%; height: 25px;">
+                <input id="officeNumUpdate" name="officeNumberUpdate" placeholder=" Office # i.e. 123" style="color: #808080; width: 15%; height: 25px;">
+                <input id="phoneNumUpdate" name="phoneNumberUpdate" placeholder=" Phone # i.e. 123-456-7890" style="color: #808080; width: 30%; height: 25px;">
+                <input id="submitUpdate" type="button" onClick="updatePageFunction()" value="&#8257;" style="width: 30px; height: 30px;">
+            </form>
+            <div class="updatePageAlert">
+            </div>
+            <div class="updatePageContent">
+            </div>
         </section>
 
         <!--DELETE-->
         <section id="deletePage" class="hide">
             <h1>Delete</h1>
             <p>Delete an entry in the directory.</p>
+            <br />
+            <form action="">
+                <input id="firstNameDelete" name="firstNameDelete" placeholder=" First" style="color: #808080; width: 20%; height: 25px;">
+                or
+                <input id="lastNameDelete" name="lastNameDelete" placeholder=" Last" style="color: #808080; width: 20%; height: 25px;">
+                <input id="submitDelete" type="button" onClick="deletePageFunction" value="&mdash;	" style="width: 30px; height: 30px;">
+            </form>
+            <div class="deletePageAlert">
+            </div>
+            <div class="deletePageContent">
+            </div>
         </section>
 
     </main>
