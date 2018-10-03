@@ -143,35 +143,30 @@ const updatePageFunction = function () {
     let firstNameUpdate = $('#firstNameUpdate').val();
     console.log(firstNameUpdate)
     let lastNameUpdate = $('#lastNameUpdate').val();
+    console.log(lastNameUpdate)
     let officeNumUpdate = $('#officeNumUpdate').val();
+    console.log(officeNumUpdate)
     let phoneNumUpdate = $('#phoneNumUpdate').val();
+    console.log(phoneNumUpdate)
 
     for (i = 0; i < employeeList.length; i++) {
         if (firstNameUpdate === employeeList[i].firstName || lastNameUpdate === employeeList[i].lastName) {
             employeeList[i].officeNum = officeNumUpdate;
             employeeList[i].phoneNum = phoneNumUpdate;
-            $('.updatePageAlert').text("Yup - all's good in the hood 😎");
-            $('.updatePageContent').empty()
-            for (i = 0; i < employeeList.length; i++) {
-                let info = (`<div class="viewPageContent"><p>${employeeList[i].firstName}</p><p>${employeeList[i].lastName}</p>
-                <p>${employeeList[i].officeNum}</p><p>${employeeList[i].phoneNum}</p></div>`);
-                $('.updatePageContent').append(info)
-            };
+            $('.updatePageAlert').text("Updated - part of the fam now 😎");
+            console.log(i);
+            console.log(employeeList[i].officeNum);
+            console.log(employeeList[i].phoneNum);
+            return
         }
         else {
-            $('.updatePageAlert').text("Nope - might want to check capitalization... or might not even be in here 🤔");
-            $('.updatePageContent').empty()
-            for (i = 0; i < employeeList.length; i++) {
-                let info = (`<div class="viewPageContent"><p>${employeeList[i].firstName}</p><p>${employeeList[i].lastName}</p>
-                <p>${employeeList[i].officeNum}</p><p>${employeeList[i].phoneNum}</p></div>`);
-                $('.updatePageContent').append(info)
-            };
-        }
+            $('.updatePageAlert').text("Not updated - we do not know you 🙄");
+        };
     }
-    $('#submitUpdate').on('click', updatePageFunction);
-};
+}
+$('#submitUpdate').on('click', updatePageFunction);
+$('#submitUpdate').on('click', viewPageFunction);
 $('#update').on('click', viewPageFunction)
-
 
 //DELETE PAGE
 const deletePageFunction = function () {
