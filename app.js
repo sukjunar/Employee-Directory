@@ -103,7 +103,7 @@ const addPageFunction = function () {
         <p>${employeeList[i].officeNum}</p><p>${employeeList[i].phoneNum}</p></div>`);
         $('.addPageContent').append(info)
     };
-    $('.addPageAlert').text("name has been added yo 😎");
+    $('.addPageAlert').text("name has been added - part of the fam now 😎");
 
     $('#submitAdd').on('click', addPageFunction);
 };
@@ -153,11 +153,11 @@ const updatePageFunction = function () {
         if (firstNameUpdate === employeeList[i].firstName || lastNameUpdate === employeeList[i].lastName) {
             employeeList[i].officeNum = officeNumUpdate;
             employeeList[i].phoneNum = phoneNumUpdate;
-            $('.updatePageAlert').text("Updated - part of the fam now 😎");
+            $('.updatePageAlert').text("Updated - we cookin' with gasoline now 😎");
             console.log(i);
             console.log(employeeList[i].officeNum);
             console.log(employeeList[i].phoneNum);
-            return
+            return;
         }
         else {
             $('.updatePageAlert').text("Not updated - we do not know you 🙄");
@@ -176,6 +176,17 @@ const deletePageFunction = function () {
     for (i = 0; i < employeeList.length; i++) {
         if (firstNameDelete === employeeList[i].firstName || lastNameDelete === employeeList[i].lastName) {
             employeeList.splice(i, 1);
+            $('.deletePageAlert').text("the person's gone for good 😭");
+            $('.deletePageContent').empty()
+            for (i = 0; i < employeeList.length; i++) {
+                let info = (`<div class="viewPageContent"><p>${employeeList[i].firstName}</p><p>${employeeList[i].lastName}</p>
+        <p>${employeeList[i].officeNum}</p><p>${employeeList[i].phoneNum}</p></div>`);
+                $('.deletePageContent').append(info)
+            };
+            return;
+        }
+        else {
+            $('.deletePageAlert').text("could not delete - do not know who you are talking about 🙄");
         }
     }
     $('.deletePageContent').empty()
@@ -184,7 +195,6 @@ const deletePageFunction = function () {
         <p>${employeeList[i].officeNum}</p><p>${employeeList[i].phoneNum}</p></div>`);
         $('.deletePageContent').append(info)
     };
-    $('.deletePageAlert').text("the person's gone for good 😭");
 };
 $('#submitDelete').on('click', deletePageFunction);
 
