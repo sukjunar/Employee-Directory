@@ -25,8 +25,6 @@ nav {
     line-height: 2;
     font-weight: bold;
     float: left;
-    padding-top: 500px;
-    overflow-y:auto;
     top: 0;
     bottom: 0;
     height: 100%;
@@ -50,19 +48,7 @@ div.addPageAlert {
     color: #ffd400;
     cursor: pointer;
 }
-#add:hover {
-    background-color: #000000;
-    color: #ffd400;
-    cursor: pointer;
-}#verify:hover {
-    background-color: #000000;
-    color: #ffd400;
-    cursor: pointer;
-}#update:hover {
-    background-color: #000000;
-    color: #ffd400;
-    cursor: pointer;
-}#delete:hover {
+#add:hover, #verify:hover, #update:hover, #delete:hover {
     background-color: #000000;
     color: #ffd400;
     cursor: pointer;
